@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--linkar till min css stylesheet -->
+		<link href="design.css" rel="stylesheet" >
+		<title> Gymnasie Exam </title>
+	</head>
+	<body>
+
+<!--Toppen av min hemsida -->
+<div id="topp">
+	<h1> Gymnasie exam check </h1>
+</div>
+
+<!--Det här är min form med alla ämnen som läs in i min javascript -->
+		<form id="lista">
+			<select>
+
+				<option> Svenska 3 </option>
+			  <option> Kemi 1 </option>
+			  <option> Gränssnittsdesign </option>
+			  <option> Programmering 2 </option>
+			  <option> Webbserverprogrammering 1 </option>
+			  <option> Engelska 5 </option>
+			  <option> Idrott och hälsa 1 </option>
+			  <option> Matematik 1 </option>
+			  <option> Religionskunskap 1 </option>
+			  <option> Samhällskunskap 1 </option>
+			  <option> Svenska 1 </option>
+			  <option> Teknik 1 </option>
+			  <option> Engelska 6 </option>
+			  <option> Historia 1 </option>
+			  <option> Matematik 2 </option>
+			  <option> Mattematik 3 </option>
+			  <option> Svenska 2 </option>
+			  <option> Fysik 1 </option>
+			  <option> Dator- och nätverksteknik </option>
+			  <option> Programmering 1 </option>
+			  <option> Webbutveckling 1 </option>
+			  <option> Webbutveckling 2 </option>
+				<option> Entrepernörskap </option>
+				<option> Engelska 7 </option>
+				<option> Gymnasiearbete TE </option>
+			</select>
+
+			<!--Här skriver du ditt betyg som sen skrivs in i mitt javascript -->
+			<input type="text" name="betygpoints" placeholder="Betyg">
+
+		</form>
+
+
+		<!--När du klickar på knappen räknar den ut poängen från betyget du la in i input -->
+		<button onclick="func()" id="knapp"> Räkna ut </button>
+
+		<script>
+		// Det här är mina var som användas för att få ut mina poäng och merit
+			var enkelp = 0;
+			var multip = 0;
+			// Här är alla ämnen som ger ut olika poäng som points läser av.
+			let points = {
+				"Svenska 3" : 100,
+				"Kemi 1" : 100,
+				"Gränssnittsdesign" : 100,
+				"Programmering 2" : 100,
+			  "Webbserverprogrammering 1" : 100,
+			  "Webbutveckling 2" : 100,
+			  "Gymnasiearbete TE" : 100,
+			  "Entrepernörskap" : 100,
+			  "Engelska 7" : 100,
+			  "Engelska 5" : 100,
+			  "Historia 1" : 50,
+			  "Matematik 1" : 100,
+			  "Religionskunskap 1" : 50,
+				"Samhällskunskap 1" : 100,
+				"Svenska 1" : 100,
+				"Teknik 1" : 150,
+				"Engelska 6" : 100,
+				"Idrott och hälsa 1" : 100,
+				"Matematik 2" : 100,
+				"Mattematik 3" : 100,
+				"Svenska 2" : 100,
+				"Fysik 1" : 150,
+				"Dator- och nätverksteknik" : 100,
+				"Programmering 1" : 100,
+				"Webbutveckling 1" : 100,
+			};
+			// Den betygpoints läser av vad den ska ge för poäng för vilken bokstav du lägger in.
+			let betygpoints = {
+				"A" : 20,
+				"B" : 17.5,
+				"C" : 15,
+				"D" : 12.5,
+				"E" : 10,
+				"F" : 0
+			};
+
+			// Den här funktion läser av min lista från början av programmet och läser in alla lektioner, Den ger också ut en value som arbete och betyg kommer använda, den läser också om den inte ser något betyg i input och sen ger ut en alert.
+			// Jag har haft problem med att fixa så att man inte kan random bokstäver som O,L,N,X ETC, men får problem att fixa det på ett bra sätt, tänkte först lägga till massa if(betyg=="" men sen insåg jag att då behöver jag lägga till det för varje knapp på tangetbordet som inte stämde med min betyg layout.)
+			function func(){
+				var arbete = document.getElementById("lista")[0].value;
+				var betyg = document.getElementById("lista")[1].value;
+				if(betyg ==""){
+					alert("Du behöver sätt till ett riktigt betyg! Försök igen!");
+				}
+
+				//Den här funktion ger ut poäng för betyg och räknar ut merit poäng. Den här funktionen funkar korrekt och startar när du skriver in en giltigt beytg.
+				//enkelp är för vanliga poäng man får av kursen och multip för merit.
+				// man räknar ut multip genom att ta enkelp * betygpoänget (100 * 17.5 (B) )
+				// document.getElementById("info").innerHTML läser ut poäng och merit, och sen läser if satsen av enkelp och om man har fått över 2500 poäng på enkel p så kan man ta gymansie examen.
+				//Saker som jag måste lägga till mer är att fixa så om man får F på kurser som Matte, Svenska, Engelska så kan man inte få gymnasie examen.
+				else{
+					enkelp += points[arbete];
+					multip=enkelp*betygpoints[betyg];
+					document.getElementById("info").innerHTML = "poäng: " + enkelp +  " merit: " + multip;
+					if(enkelp >= 2500){
+
+						alert("Du kan ta gymnasie-exam!");
+					}
+				}
+				document.getElementById("lista").reset();
+			}
+		</script>
+
+		<p id="info">
+	</body>
+</html>
