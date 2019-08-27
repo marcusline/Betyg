@@ -32,7 +32,7 @@
 	<h2> F = 0p </h2>
 </div>
 
-<!--Det här är min form med alla ämnen som läs in i min javascript -->
+<!--Det här är min form med alla ämnen som visas på skärmen -->
 		<form id="lista">
 			<select>
 
@@ -76,7 +76,7 @@
 		// Det här är mina var som användas för att få ut mina poäng och merit
 			var enkelp = 0;
 			var multip = 0;
-			// Här är alla ämnen som ger ut olika poäng som points läser av.
+			// Här är alla ämnen som ger ut olika poäng som points läser av. läs också in i javascript commandet.
 			let points = {
 				"Svenska 3" : 100,
 				"Kemi 1" : 100,
@@ -132,7 +132,7 @@
 					enkelp += points[arbete];
 					multip=enkelp*betygpoints[betyg];
 					document.getElementById("info").innerHTML = "poäng: " + enkelp +  " merit: " + multip;
-					if(enkelp >= 2500){
+					if(enkelp >= 2400){
 
 						alert("Du kan ta gymnasie-exam!");
 					}
