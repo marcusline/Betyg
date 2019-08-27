@@ -17,7 +17,7 @@
   height: 10vh;
   background-color: #b5ff93;
   text-align: center;
-
+border-bottom: 3px solid black;
 }
 
 #funka{
@@ -60,5 +60,5 @@
     text-align: center;
     background-color: grey;
     font-size: 30px;
-    
+
 }
