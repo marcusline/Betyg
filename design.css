@@ -15,9 +15,31 @@
 #topp{
   width: 100vw;
   height: 10vh;
-  background-color: cyan;
+  background-color: #b5ff93;
   text-align: center;
 
+}
+
+#funka{
+  width: 24vw;
+  height: 12vh;
+  background-color: grey;
+  margin: 2vh;
+  position: absolute;
+  left: 10%;
+  text-align: center;
+  border: 3px solid #98ff61;
+}
+
+#show{
+  width: 12vw;
+  height: 37vh;
+  background-color: grey;
+  margin-top: 2vh;
+  position: absolute;
+  left: 65%;
+  text-align: center;
+  border: 3px solid #98ff61;
 }
 
 #knapp{
@@ -26,6 +48,7 @@
   position:absolute;
     top: 30%;
     left: 38%;
+
 }
 
 #info{
@@ -37,4 +60,5 @@
     text-align: center;
     background-color: grey;
     font-size: 30px;
+    
 }
